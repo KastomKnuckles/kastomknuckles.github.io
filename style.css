@@ -12,7 +12,7 @@ li {/*цвет текста*/color:#F2F2F2;}
 .header {float:center; width:100%;}
 
 /*Социальные ссылки*/
-#social_bar_box {display: flex; justify-content: center; min-width:720px}
+#social_bar_box {display: flex; justify-content: center;}
 .inline_soc {padding: 5px 1% 5px 1%}
 .icon {width: 24px; height: 24px;}
 
