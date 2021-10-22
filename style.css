@@ -1,5 +1,5 @@
 /*Каркас сайта*/
-body {padding:0px; margin:0; background: #0D0D0D; background-image: url(images/bg2.png); background-size: 100%; font-size:14px; font-family:Segoe UI;}
+body {padding:0px; margin:0; background: #0D0D0D; background-image: url(images/bg2.png) center no-repeat; background-size: 100%; font-size:14px; font-family:Segoe UI;}
 img {border:0;}
 a {/*цвет текста*/color:#F2F2F2;}
 a:hover {text-decoration:none;}
