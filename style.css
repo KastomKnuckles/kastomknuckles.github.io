@@ -6,7 +6,7 @@ a:hover {text-decoration:none;}
 li {/*цвет текста*/color:#F2F2F2;}
 
 /*Центральный блок*/
-#main {/*Ширина*/width:50%; /*Минимальная ширина*/min-width:360px; min-height:100%; margin:0 auto; margin-top: 60px; background:#141414; /*background-image: url(images/bgmain.png); background-position: left bottom; background-repeat: repeat;*/ border-radius: 10px 10px 0 0; box-shadow: 0px 0px 10px 1px black;}
+#main {/*Ширина*/width:50%; /*Минимальная ширина*/min-width:430px; min-height:100%; margin:0 auto; margin-top: 60px; background:#141414; /*background-image: url(images/bgmain.png); background-position: left bottom; background-repeat: repeat;*/ border-radius: 10px 10px 0 0; box-shadow: 0px 0px 10px 1px black;}
 
 /*Первый баннер*/
 .header {float:center; width:100%;}
