@@ -27,5 +27,5 @@ p {color: #F2F2F2}
 
 /*Галерея с обложками*/
 #covers_gallery_box {display: grid; grid-template-columns: repeat(2, 50%);}
-@media screen and (min-width: 410px) {#covers_gallery_box {display: grid; grid-template-columns: repeat(4, 25%);}}
+@media screen and (min-width: 430px) {#covers_gallery_box {display: grid; grid-template-columns: repeat(4, 25%);}}
 #cover img {width: 100%; margin-bottom: -8px;}
