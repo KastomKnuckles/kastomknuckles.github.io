@@ -11,6 +11,20 @@
         <script src="js/moment-with-locales.js" type="text/javascript"></script>
     </head>
     <body>
+        <!--Прелоадер-->
+        <div id="preloader">
+            <img src="images/preloader.png" class="preloader_image">
+        </div>
+        <!--Скрипт на прелоадер-->
+        <script type="text/javascript">
+            $(window).on('load', function () {
+                $('body').addClass('loaded_hiding');
+                window.setTimeout(function () {
+                    $('body').addClass('loaded');
+                    $('body').removeClass('loaded_hiding');
+                }, 500);
+            });
+        </script>
         <!--Основной блок сайта-->
         <div id="main">
             <!--Шапка с логотипом-->
@@ -71,6 +85,7 @@
             <!--Обложки с релизами-->
             <div id="covers_gallery">
                 <div id="covers_gallery_box">
+                    <div id="cover"><a href="#6" target="_blank"><img src="images/covers/cover_sample.png"></a></div>
                     <div id="cover"><a href="#5" target="_blank"><img src="images/covers/cover_sample.png"></a></div>
                     <div id="cover"><a href="#4" target="_blank"><img src="images/covers/cover_sample.png"></a></div>
                     <div id="cover"><a href="#3" target="_blank"><img src="images/covers/cover_sample.png"></a></div>
