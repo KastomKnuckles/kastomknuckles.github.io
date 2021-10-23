@@ -101,17 +101,29 @@
                 spoilers();
             });
             //Скрипт на спойлеры
-            $j = jQuery.noConflict();
-            $j(".fox_spoiler_head").each(function(index) {
-                $j(this).on("click", function(){
-                let _elem = $j(this).parent().children(".fox_spoiler_body");
-                let _vis = parseInt($j(_elem).attr('fox_visible'));
-                $j(".fox_spoiler_body").each(function(index) {
-                    $j(this).attr('fox_visible', '0');
+            function spoilers() {
+                $(".fox_spoiler_head").each(function(index) {
+                    $(this).on("click", function(){
+                        let _elem = $(this).parent().children(".fox_spoiler_body");
+                        let _vis = parseInt($(_elem).attr('fox_visible'));
+                        $(".fox_spoiler_body").each(function(index) {
+                            $(this).attr('fox_visible', '0');
+                        });
+                        $(_elem).attr('fox_visible', ((_vis === 1) ? '0' : '1'));
+                    });
                 });
-                $j(_elem).attr('fox_visible', ((_vis=='1') ? '0' : '1'));
-            });
-            });
+            }
+            //$j = jQuery.noConflict();
+            //$j(".fox_spoiler_head").each(function(index) {
+                //$j(this).on("click", function(){
+                //let _elem = $j(this).parent().children(".fox_spoiler_body");
+                //let _vis = parseInt($j(_elem).attr('fox_visible'));
+                //$j(".fox_spoiler_body").each(function(index) {
+                    //$j(this).attr('fox_visible', '0');
+                //});
+                //$j(_elem).attr('fox_visible', ((_vis=='1') ? '0' : '1'));
+            //});
+            //});
         </script>
     </body>   
 </html>
