@@ -42,6 +42,14 @@ li {
     margin-left: -35px;
     text-align: center;
 }
+.preloader_text {
+    position: relative;
+    width:100%;
+    margin: 25% 0 25% 0;
+    text-align: center;
+    font-family: MS Mincho Regular;
+    font-size: 40px;
+}
 .loaded_hiding #preloader {
     transition: 0.3s opacity;
     opacity: 0;
@@ -127,4 +135,17 @@ p {
 }
 #cover img {
     width: 100%; margin-bottom: -8px;
+}
+
+/*Имя карточки*/
+#album_name {
+    padding: 1px 0 0 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+/*Видео с ютуба на карточку*/
+#youtube_vid iframe {
+    border-radius: 10px 10px 10px 10px;
 }
