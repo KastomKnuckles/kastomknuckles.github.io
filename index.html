@@ -15,16 +15,6 @@
         <div id="preloader">
             <img src="images/preloader.png" class="preloader_image">
         </div>
-        <!--Скрипт на прелоадер-->
-        <script type="text/javascript">
-            $(window).on('load', function () {
-                $('body').addClass('loaded_hiding');
-                window.setTimeout(function () {
-                    $('body').addClass('loaded');
-                    $('body').removeClass('loaded_hiding');
-                }, 500);
-            });
-        </script>
         <!--Основной блок сайта-->
         <div id="main">
             <!--Шапка с логотипом-->
@@ -94,19 +84,36 @@
                 </div>
             </div>
         </div>
-        <!--Скрипт на спойлеры-->
+
         <script type="text/javascript">
-        $j = jQuery.noConflict();
-        $j(".fox_spoiler_head").each(function(index) {
-          $j(this).on("click", function(){
-            let _elem = $j(this).parent().children(".fox_spoiler_body");
-            let _vis = parseInt($j(_elem).attr('fox_visible'));
-            $j(".fox_spoiler_body").each(function(index) {
-              $j(this).attr('fox_visible', '0');
+            function spoilers() {
+                $(".fox_spoiler_head").each(function(index) {
+                    $(this).on("click", function(){
+                        let _elem = $(this).parent().children(".fox_spoiler_body");
+                        let _vis = parseInt($(_elem).attr('fox_visible'));
+                        $(".fox_spoiler_body").each(function(index) {
+                            $(this).attr('fox_visible', '0');
+                        });
+                        $(_elem).attr('fox_visible', ((_vis === 1) ? '0' : '1'));
+                    });
+                });
+            }
+
+            <!--Скрипт на прелоадер-->
+            function preloader() {
+                const body = $('body');
+
+                body.addClass('loaded_hiding');
+                window.setTimeout(function () {
+                    body.addClass('loaded');
+                    body.removeClass('loaded_hiding');
+                }, 500);
+            }
+
+            $(window).on('load', function () {
+                preloader();
+                spoilers();
             });
-            $j(_elem).attr('fox_visible', ((_vis=='1') ? '0' : '1'));
-          });
-        });
         </script>
-    </body>   
+    </body>
 </html>
