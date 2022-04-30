@@ -1,26 +1,8 @@
-/*Каркас сайта*/
 body {
-    padding:0px;
-    margin:0;
-    background: #0D0D0D;
-    background-image: url(images/bg.png);
-    background-size: 100%;
-    font-size:14px;
-    font-family:Segoe UI;
+    margin: 0;
+    font-family: Segoe UI;
+    background: black;
 }
-img {
-    border:0;
-}
-a {
-    color:#F2F2F2; /*цвет текста*/
-}
-/*a:hover {
-    text-decoration:none;
-}*/
-li {
-    color:#F2F2F2; /*цвет текста*/
-}
-
 /*Прелоадер*/
 #preloader {
     position: fixed;
@@ -49,6 +31,7 @@ li {
     text-align: center;
     font-family: MS Mincho Regular;
     font-size: 40px;
+    color: #fff;
 }
 .loaded_hiding #preloader {
     transition: 0.3s opacity;
@@ -57,154 +40,75 @@ li {
 .loaded #preloader {
     display: none;
 }
-
-/*Центральный блок*/
-#main {
-    width:96%;
-    min-height:100%;
-    margin:0 auto;
-    margin-top: 60px;
-    margin-bottom: 60px;
-    padding-bottom: 18px;
-    background:#141414;
-    border-radius: 10px 10px 10px 10px;
-    box-shadow: 0px 0px 10px 1px black;
+/*Меню*/
+#menubar {
+    display: grid;
+    grid-template-columns: 40% 25% 35%;
+    list-style: none;
+    background-image: url(images/bgmain.png);
+    height: 50px;
+    width: 100%;
+    /*border-radius: 0px 0px 7px 7px;*/
+    text-decoration: none;
+    position: -webkit-sticky; /*Создаём "прилипание" элемента к верху страницы*/
+    position: sticky;
+    top: 0;
+    box-shadow: 0px 0px 10px 1px;
 }
-@media screen and (min-device-width: 500px) {
-    #main {
-        width:50%;
-    }
-}
-
-/*Первый баннер*/
-.header {
-    float:center;
-    width:100%;
-}
-
-/*Социальные ссылки*/
-#social_bar_box {
+/*Собственно меню*/
+#menu {
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
-.inline_soc {
-    padding: 5px 1% 5px 1%
-}
-.icon {
-    width: 27px; height: 27px;
-}
-@media screen and (min-device-width: 500px) {
-    .icon {
-        width: 24px; height: 24px;
-    }
-}
-
-/*Всплывающее меню*/
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #303030;
-    box-shadow: 0px 0px 10px 1px black;
-    border-radius: 10px 10px 10px 10px;
-}
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: flex; justify-content: center; padding: 5px 10px 1px 11px;}
-
-/*Ссылка на инфу*/
-#about-link {
-    text-align: center;
-    font-size: 20px;
-    margin-bottom: 30px;
-}
-
-/*Инфоблок*/
-.inline_info {
-    display: flex;
-    justify-content: center;
-}
-.fox_spoiler {
-    text-align: center;
-    font-size: 20px;
-    margin: 0.2em 0 1.5em 0;
-}
-.fox_spoiler_head {
-    text-align: center;
-    user-select: none;
-    text-decoration: underline
-}
-.fox_spoiler_head:hover {
-    text-decoration: none
-}
-.fox_spoiler_body {
-    display: none;
-    text-align: center;
-    font-size: 14px;
-    border-top: solid 1px #fff;
-    border-bottom: solid 1px #fff;
-    padding: 0.8em 0em 0.9em 0em;
-    margin-top: 0.5em;
-}
-.fox_spoiler_body[fox_visible="1"] {
+.menubutton {
+    font-size: 130%;
     display: block;
 }
-p {
-    color: #F2F2F2
+.favicon {
+    height: 36px;
+    margin: 7px 0px 7px 0px;
 }
-
-/*Галерея с обложками*/
-#covers_gallery_box {
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
+#menubar a {
+    text-decoration: none;
+    color: #fff;
+    display: block; 
+    padding: 0px 7px;
+    line-height: 50px;
 }
-@media screen and (min-device-width: 500px) {
-    #covers_gallery_box {
-        grid-template-columns: repeat(4, 25%);
-    }
+/*Социальные ссылки*/
+#socialbar {
+    display: flex;
+    justify-content: right;
 }
-#cover img {
-    width: 100%; margin-bottom: -4px;
+.inline_soc {
+    padding: 2px 0px 0px 0px
 }
-
-/*Имя карточки*/
-#album_name {
-    /*padding: 1px 0 0 0;*/
-    text-align: center;
-    font-weight: bold;
-    font-size: 25px;
+.icon {
+    width: 20px; height: 20px;
 }
-
-/*Видео с ютуба на карточку*/
-#youtube_vid iframe {
-    border-radius: 10px 10px 10px 10px;
-}
-
-/*Страница с информацией*/
-#info_block {
-    padding: 10px 10px 10px 10px;
-    text-align: center;
-    font-size: 18px;
-}
-#info_block_menu {
-    width:30%;
-    min-height:100%;
-    margin:0 auto;
-    padding-top: 5px;
-    padding-bottom: 10px;
-    border: 1px solid #F2F2F2;
-    border-radius: 10px 10px 10px 10px;
-    font-size: 14px;
+/*Заглавный баннер*/
+#header {
+    margin-bottom: -4px;
 }
 .header {
-    font-size: 50px;
-    font-weight: 600;
+    width: 100%;
 }
-.header_low {
-    font-size: 25px;
-    font-weight: 600;
+/*Тело сайта*/
+#sitebody {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    background-image: url(images/bgmain.png);
 }
-.presskit11 {
-    width: 25%;
+/*Галерея с обложками*/
+#coversgallery{
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
 }
-.presskitlong {
-    width: 95%;
+#cover img {
+    width: 100%;
+    margin-bottom: -4px;
+}
+
+#news a {
+    color: #fff;
 }
