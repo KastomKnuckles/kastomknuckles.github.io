@@ -1,114 +1,385 @@
-body {
-    margin: 0;
-    font-family: Segoe UI;
-    background: black;
+@font-face {
+    font-family: Inter;
+    src: url(/fonts/Inter-Light.ttf);
 }
-/*Прелоадер*/
-#preloader {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
-    background: #0D0D0D;
-    z-index: 1001;
+@font-face {
+    font-family: Inter;
+    font-weight: bold;
+    src: url(/fonts/Inter-Bold.ttf);
 }
-.preloader_image {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    width: 70px;
-    height: 70px;
-    margin-top: -35px;
-    margin-left: -35px;
-    text-align: center;
+svg path {
+    fill:inherit;
+    stroke:inherit;
+    stroke-width:inherit;
 }
-.preloader_text {
-    position: relative;
-    width:100%;
-    margin: 25% 0 25% 0;
-    text-align: center;
-    font-family: MS Mincho Regular;
-    font-size: 40px;
-    color: #fff;
-}
-.loaded_hiding #preloader {
-    transition: 0.3s opacity;
-    opacity: 0;
-}
-.loaded #preloader {
-    display: none;
-}
-/*Меню*/
-#menubar {
-    display: grid;
-    grid-template-columns: 40% 25% 35%;
-    list-style: none;
-    background-image: url(images/bgmain.png);
-    height: 50px;
-    width: 100%;
-    /*border-radius: 0px 0px 7px 7px;*/
-    text-decoration: none;
-    position: -webkit-sticky; /*Создаём "прилипание" элемента к верху страницы*/
-    position: sticky;
-    top: 0;
-    box-shadow: 0px 0px 10px 1px;
-}
-/*Собственно меню*/
-#menu {
-    display: flex;
-    justify-content: left;
-}
-.menubutton {
-    font-size: 130%;
-    display: block;
-}
-.favicon {
-    height: 36px;
-    margin: 7px 0px 7px 0px;
-}
-#menubar a {
-    text-decoration: none;
-    color: #fff;
-    display: block; 
-    padding: 0px 7px;
-    line-height: 50px;
-}
-/*Социальные ссылки*/
-#socialbar {
-    display: flex;
-    justify-content: right;
-}
-.inline_soc {
-    padding: 2px 0px 0px 0px
-}
-.icon {
-    width: 20px; height: 20px;
-}
-/*Заглавный баннер*/
-#header {
-    margin-bottom: -4px;
-}
-.header {
-    width: 100%;
-}
-/*Тело сайта*/
-#sitebody {
-    display: grid;
-    grid-template-columns: 60% 40%;
-    background-image: url(images/bgmain.png);
-}
-/*Галерея с обложками*/
-#coversgallery{
-    display: grid;
-    grid-template-columns: repeat(3, 33%);
-}
-#cover img {
-    width: 100%;
-    margin-bottom: -4px;
+:root {
+    --background-color: #1b1b1b;
+    --block-color: #353535;
 }
 
-#news a {
-    color: #fff;
+body {
+    margin: 0;
+    padding: 0;
+    /*font-family: Segoe UI;*/
+    font-family: Inter;
+    color: white;
+    background-color: var(--background-color);
+    max-width: 100%;
+    overflow-x: hidden;
+    padding: 3px;
+    user-select: none;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+.desktop-container {
+    display: block;
+}
+.d-content-container {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1280px;
+}
+.block {
+    background-color: var(--block-color);
+    border-radius: calc(100vw * (12/1287));
+    margin: 0 calc(100vw * (3/1287));
+    /*width: calc(100vw * (1274/1366));*/
+}
+.br {
+    height: calc(100vw * (6/1287));
+}
+.block-name {
+    display: flex;
+    justify-content: center;
+    font-size: calc(100vw * (23/1287));
+    height: calc(100vw * (50/1287));
+}
+.block-name b {
+    margin: auto;
+}
+@media screen and (min-width: 1280px) {
+    body {
+        padding: 3px;
+    }
+    .block {
+        border-radius: 12px;
+        margin: 0 3px;
+        width: auto;
+        height: auto;
+    }
+    .br {
+        height: 6px;
+    }
+    .block-name {
+        font-size: 23px;
+        height: 50px;
+    }
+}
+
+/*Меню*/
+.d-menu-container {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
+    transition: all 0.3s ease-in-out;
+}
+.menu-panel {
+    display: flex;
+    justify-content: center;
+    background-color: var(--block-color);
+    padding: 3px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 15px;
+}
+.menu-button {
+    width: 120px;
+    height: 50px;
+    /*box-shadow: 0 0 10px black;*/
+    background-color: var(--block-color);
+    border-radius: 12px;
+    margin: 3px;
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    font-size: 23px;
+}
+.menu-button>b {
+    margin: auto 7px;
+    transition: all 0.3s ease-in-out;
+}
+.menu-button:hover {
+    width: 200px;
+    background-color: white;
+    color: var(--block-color);
+}
+
+/*Титл*/
+.d-content-container>.banner {
+    display: flex;
+    justify-content: center;
+}
+.d-content-container>.banner>img {
+    width: calc(100vw * (285 / 1287));
+    margin: calc(100vw * (37 / 1287));
+}
+.banner {
+    display: flex;
+    justify-content: center;
+}
+.banner div {
+    margin: auto 0;
+    font-size: calc(100vw * (112 / 1287));
+}
+@media screen and (min-width: 1280px) {
+    .d-content-container>.banner>img {
+        width: 273px;
+        margin: 25px;
+    }
+    .banner div {
+        font-size: 100px;
+    }
+}
+/*Релизы*/
+.releases {
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    border-radius: 0 0 calc(100vw * (12 / 1287)) calc(100vw * (12 / 1287));
+    overflow: hidden;
+}
+.releases-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    overflow: hidden;
+    padding: calc(100vw * (3 / 1287));
+}
+.release-button {
+    display: flex;
+    margin: calc(100vw * (3 / 1287));
+    /*background-color: var(--background-color);*/
+    border-radius: calc(100vw * (12 / 1287));
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    background-position: center;
+    background-size: cover;
+    /*background-blend-mode: multiply;*/
+}
+.release-button>img {
+    height: calc(100vw * (120 / 1287));
+    transition: all 0.3s ease-in-out;
+}
+.release-button-text {
+    width: 100%;
+}
+.rbt-opacity {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.75);
+    transition: all 0.3s ease-in-out;
+}
+.rbt-opacity>text {
+    margin: auto;
+    text-align: center;
+    font-size: calc(100vw * (25 / 1287));
+}
+.release-button:hover {
+    color: var(--block-color);
+    /*background-color: white;
+    background-blend-mode: color;*/
+}
+.release-button:hover .rbt-opacity {
+    background-color: rgb(255, 255, 255, 1);
+}
+.release-button:hover img {
+    filter: grayscale(100%);
+}
+.m-r-button {
+    display: flex;
+    justify-content: center;
+    margin: calc(100vw * (3 / 1287));
+    border-radius: calc(100vw * (12 / 1287));
+    transition: all 0.3s ease-in-out;
+    background-color: var(--background-color);
+    font-size: calc(100vw * (30 / 1287));
+    cursor: pointer;
+}
+.m-r-button text {
+    margin: auto;
+}
+.m-r-button:hover {
+    background-color: white;
+    color: var(--block-color);
+}
+@media screen and (min-width: 1280px) {
+    .releases {
+        border-radius: 0 0 12px 12px;
+    }
+    .releases-2 {
+        padding: 3px;
+    }
+    .release-button {
+        margin: 3px;
+        border-radius: 12px;
+    }
+    .release-button>img {
+        height: 120px;
+    }
+    .rbt-opacity>text {
+        font-size: 25px;
+    }
+    .m-r-button {
+        margin: 3px;
+        border-radius: 12px;
+        font-size: 30px;
+    }
+}
+
+/*Ряд с кнопками*/
+.row-1 {
+    display: flex;
+    justify-content: center;
+}
+.button {
+    display: flex;
+    justify-content: center;
+    width: calc(100vw * (50 / 1287));
+    height: calc(100vw * (50 / 1287));
+    text-decoration: none;
+    color: white;
+    fill: white;
+    transition: all 0.3s ease-in-out;
+}
+.text-button {
+    width: calc(100vw * (200 / 1287));
+}
+.button svg {
+    width: calc(100vw * (30 / 1287));
+    height: calc(100vw * (30 / 1287));
+    margin: auto;
+}
+.button b {
+    margin: auto;
+    font-size: calc(100vw * (23 / 1287));
+}
+.button:hover{
+    background-color: white;
+    color: var(--block-color);
+    fill: var(--block-color);
+}
+@media screen and (min-width: 1280px) {
+    .button {
+        width: 50px;
+        height: 50px;
+    }
+    .text-button {
+        width: 200px;
+    }
+    .button svg {
+        width: 30px;
+        height: 30px;
+    }
+    .button b {
+        font-size: 23px;
+    }
+}
+
+/*Инфо*/
+.info-text {
+    margin: 0 calc(100vw * (15 / 1287));
+    padding-bottom: calc(100vw * (15 / 1287));
+    text-align: justify;
+    display: flex;
+    font-size: calc(100vw * (27 / 1287));
+}
+.info-text text {
+    margin-right: calc(100vw * (12 / 1287));
+}
+.info-text img {
+    height: calc(100vw * (300 / 1287));
+}
+@media screen and (min-width: 1280px) {
+    .info-text {
+        margin: 0 15px;
+        padding-bottom: 15px;
+        font-size: 27px;
+    }
+    .info-text text {
+        margin-right: 12px;
+    }
+    .info-text img {
+        height: 300px;
+    }
+}
+
+/*Ростер*/
+.roster {
+    display: grid;
+    grid-template-columns: repeat(7, calc(100%/7));
+    border-radius: 0 0 12px 12px;
+    overflow: hidden;
+    justify-content: center;
+    padding: 6px;
+}
+.artist-2 {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    display: block;
+    justify-content: center;
+    background-color: var(--background-color);
+    transition: all 0.3s ease-in-out;
+}
+.artist-2 img {
+    width: 100%;
+    margin-bottom: -4px;
+    transition: all 0.3s ease-in-out;
+}
+.artist-2 b {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+.artist-2 text {
+    margin: 6px 0px;
+}
+.artist-text-bg {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+.artist-2:hover {
+    background-color: white;
+}
+.artist-2:hover img {
+    filter: grayscale(100);
+}
+.artist-2:hover .artist-text-bg {
+    background-color: white;
+    color: var(--block-color);
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: calc(100vw * (12/1287)) 0;
+    font-size: calc(100vw * (16/1287));
+}
+@media screen and (min-width: 1280px) {
+    .footer {
+        margin: 12px 0;
+        font-size: 16px;
+    }
 }
